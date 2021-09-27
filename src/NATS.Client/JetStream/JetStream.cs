@@ -180,9 +180,10 @@ namespace NATS.Client.JetStream
             }
             
             // 2. Is this a durable or ephemeral
-            if (!string.IsNullOrWhiteSpace(durable)) {
-                ConsumerInfo lookedUpInfo = 
-                    LookupConsumerInfo(stream, durable);
+            if (!string.IsNullOrWhiteSpace(durable))
+            {
+                ConsumerInfo lookedUpInfo = null;
+                    
 
                 if (lookedUpInfo != null) { // the consumer for that durable already exists
                     createConsumer = false;
